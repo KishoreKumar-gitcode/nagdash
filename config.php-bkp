@@ -1,0 +1,51 @@
+<?php
+$base_url = "/nagdash/";
+// Config
+
+// Type of API
+// Supported values are nagios-api or livestatus
+$api_type = "nagios-api";
+
+// Your Nagios hosts
+$nagios_hosts = array(
+ array("hostname" => "uat-ws.arihantcapital.com/nagios-api/", "port" => "443", "protocol" => "https", "tag" => "ARIHANT-UAT", "tagcolour" => "#FFAD00","nagios_url"=>"https://uat-ws.arihantcapital.com/nagios/"),
+  array("hostname" => "dev-ws.arihantcapital.com/nagios-api/", "port" => "443", "protocol" => "https", "tag" => "ARIHANT-DEV", "tagcolour" => "#9d20f0","nagios_url"=>"https://dev-ws.arihantcapital.com/nagios/"),
+array("hostname" => "pilot-ws.arihantcapital.com/nagios-api/", "port" => "443", "protocol" => "https", "tag" => "ARIHANT-PILOT", "tagcolour" => "#9d20f0","nagios_url"=>"https://pilot-ws.arihantcapital.com/nagios/"),
+);
+// Globally filter out hosts using a regex, if you wish, or leave blank for all. 
+$filter = "";
+
+// Default downtime duration, measured in seconds, for scheduling downtime via the Nagdash interface.  
+$duration = 60*60;
+
+// Show the floating spinner when Nagdash is being refreshed.
+$show_refresh_spinner = true;
+
+// Refresh rate
+$refresh_every_ms = 20000;
+
+// sort_by_time: Set this to true to sort by the last state change, e.g. how long the service has been broken.
+// If set to false, leave to default sorting by hostname instead.
+$sort_by_time = true;
+
+// To select by last state change, let's define some time ranges folks might
+// want to use when filtering events.
+$select_last_state_change_options = array(
+    0 => "N/A", # DO NOT MODIFY THIS VALUE
+    15 * 60 => "15 minutes",
+    60 * 60 => "1 hour",
+    60 * 60 * 12 => "12 hours",
+    60 * 60 * 24 => "1 day",
+    60 * 60 * 24 * 7 => "1 week"
+);
+
+// Enables the <blink> tag on HARD service notifications. Enable if you want more eye-catching goodness
+$enable_blinking = false;
+
+// Include more css after the default; useful for custom skin
+//$extra_css = none;
+
+# For testing, uncomment this for some errors:
+//$mock_state_file = './test_data/state';
+
+// End Config
